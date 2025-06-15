@@ -22,7 +22,7 @@ function App() {
     setTimeout(() => {
       const tributeSection = document.querySelector('.tribute-display');
       tributeSection?.scrollIntoView({ behavior: 'smooth' });
-    }, 5000); // slight delay to ensure element is rendered
+    }, 100); // slight delay to ensure element is rendered
   };
 
   const handleStartAgain = () => {
