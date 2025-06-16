@@ -1,203 +1,162 @@
 * {
     box-sizing: border-box;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-  
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-  }
-
-  /* body.submitted-blur .form-card {
-    filter: blur(4px);
-    transition: filter 0.5s ease-in-out;
-  } */
-
-  
+*:focus {
+    outline: none;
+}
   #root {
     width: 100%;
   }
-  
-  .app-wrapper {
+:root {
+  --background: #f7f9fb;
+  --card-bg: #ffffff;
+  --primary: #6b7aa1;        /* Muted soft blue-gray */
+  --secondary: #a3acc5;      /* Lighter soft tone */
+  --text-main: #333;
+  --text-muted: #666;
+  --text-soft: #666; /* or something like #777 or #888 */
+  --border-light: #ddd;
+  --button-text: #fff;
+  --accent: #e5eaf3;
+}
+.btn {
+  background-color: var(--primary);
+  color: var(--button-text);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  margin: 0.5rem 0rem;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+.btn:hover {
+  background-color: var(--secondary);
+}
+
+
+/* Global Reset and Base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+}
+
+/* Main App Container */
+.app-wrapper {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
     text-align: center;
-  }
-  
-  h1 {
-    margin-bottom: 10px;
-    color: #444;
-  }
-  
-  .subtitle {
-    margin-bottom: 30px;
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .form-card {
-    background: #fff;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: left;
-  }
-  
-  .file-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #3366cc;
-    color: white;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-    border: none;
-    margin-bottom: 10px;
-  }
-  
-  .file-button:hover {
-    background-color: #2b5bbd;
-  }
-  
-  input[type="file"] {
-    display: none;
-  }
-  
-  .image-preview {
-    margin-top: 20px;
-  }
-  
-  .image-preview img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-  
-  .tribute-form {
-    /* background-color: red; */
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-field {
-    width: 100%;
-    margin-top: 8px;
-    padding: 16px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    font-family: 'Segoe UI', sans-serif;
-    resize: none;
-  }
-  
-  .primary-button {
-    margin-top: 12px;
-    background-color: #3366cc;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .primary-button:hover {
-    background-color: #2b5bbd;
-  }
-  
-  .tribute-display {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  .tribute-display {
-    background: #ffffff;
-    padding: 24px;
-    border-radius: 12px;
-    text-align: center;
-    margin-top: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    animation: fadeIn 10.2s ease-in-out forwards;
-  }
+}
 
-  .app-wrapper h2,
-  .tribute-display h4 {
-    line-height: 1.5;
-    margin-top: 16px;
-  }
-  .app-wrapper h2{
-    font-size: 1.8rem;
-    color: #555;
-  }
-  /* .app-wrapper h4{
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #999;
-  } */
-  .tribute-display h4 {
-    font-family: 'Georgia', serif;
-    font-size: 1.25rem;
-    color: #444;
-    line-height: 1.6;
-  }
-  .tribute-display h4 {
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
-    font-weight: 400;
-  }
-  /* .tribute-display h4 {
-    font-family: 'Lora', serif;
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.7;
-    font-weight: 400;
-  } */
+/* Headings */
+h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
 
-  .action-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .secondary-button {
-    background-color: #777;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .secondary-button:hover {
-    background-color: #555;
-  }
+.subtitle {
+  /* color: var(--text-muted); */
+  color: var(--text-soft);
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
 
-  .fade-in {
-    animation: fadeIn 1.9s ease-in-out forwards;
-  }
+/* Form Card */
+.form-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 600px;
+  margin: auto;
+}
 
-  @keyframes fadeIn {
-    from {
-       opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  button,
-  .file-button {
-    transition: all 0.3s ease-in-out;
-  }
+.file-button:hover {
+  background-color: var(--secondary);
+}
 
-  .blurred-image img {
-    filter: blur(1px);
-    transition: filter 0.6s ease-in-out;
-  }
+input[type="file"] {
+  display: none;
+}
 
-  
+/* Image Preview */
+.image-preview {
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Tribute Form Inputs */
+.input-field {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: var(--accent);
+  resize: none;
+}
+
+/* .primary-button:hover,
+.secondary-button:hover {
+  background-color: var(--secondary);
+} */
+
+
+/* Tribute Text Display */
+.tribute-display h4 {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* Fade-in (Optional) */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hidden Capture Version */
+.capture-version {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+
+/* Misc Spacing and Layout */
+.tribute-form {
+  margin-top: 1rem;
+}
+.tribute-form h3 {
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.action-buttons {
+  margin-top: 1.5rem;
+}

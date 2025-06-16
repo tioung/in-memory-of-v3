@@ -1,8 +1,9 @@
 import './App.css';
 import { useState } from 'react';
+import html2canvas from 'html2canvas';
+import { useRef } from 'react';
 
 function App() {
-  console.log(12555)
   const [previewUrl, setPreviewUrl] = useState(null);
   const [tributeText, setTributeText] = useState('');
   const [name, setName] = useState('');
@@ -18,7 +19,6 @@ function App() {
 
   const handleSubmit = () => {
     setSubmitted(true);
-    // document.body.classList.add('submitted-blur');
     setTimeout(() => {
       const tributeSection = document.querySelector('.tribute-display');
       tributeSection?.scrollIntoView({ behavior: 'smooth' });
@@ -30,17 +30,21 @@ function App() {
     setTributeText('');
     setName('');
     setSubmitted(false);
-    // document.body.classList.remove('submitted-blur');
   };
 
-  const handleSave = () => {
-    if (previewUrl) {
+// Add this ref
+const captureRef = useRef(null);
+
+const handleSave = () => {
+  if (captureRef.current) {
+    html2canvas(captureRef.current).then(canvas => {
       const link = document.createElement('a');
-      link.href = previewUrl;
-      link.download = `${name || 'tribute'}.jpg`; // Customize filename
+      link.download = `${name || 'tribute'}.png`;
+      link.href = canvas.toDataURL();
       link.click();
-    }
-  };
+    });
+  }
+};
 
   return (
     <div className="app-wrapper">
@@ -54,22 +58,20 @@ function App() {
       <div className="form-card">
         {!submitted && (
           <>
-            <label htmlFor="file-upload" className="file-button">Upload Photo</label>
+            <label htmlFor="file-upload" className="btn file-button">Upload Photo</label>
             <input id="file-upload" type="file" onChange={handleFileChange} />
           </>
         )}
-
-        {/* {previewUrl && (
-          <div className="image-preview fade-in">
-            <img src={previewUrl} alt="Preview" />
-          </div>
-        )} */}
-        {previewUrl && (
-          <div className={`image-preview fade-in ${submitted ? 'blurred-image' : ''}`}>
-            <img src={previewUrl} alt="Preview" />
-          </div>
-        )}
-
+          {previewUrl && (
+            <div className={`image-preview fade-in ${submitted ? 'blurred-image' : ''}`}>
+              <img src={previewUrl} alt="Preview" />
+            </div>
+          )}
+          {submitted && (
+            <div className="tribute-display fade-in">
+              <h4>{tributeText.trim()}</h4>
+            </div>
+          )}
 
         {!submitted && (
           <div className="tribute-form">
@@ -88,25 +90,46 @@ function App() {
               value={tributeText}
               onChange={(e) => setTributeText(e.target.value)}
             />
-            <button className="primary-button" onClick={handleSubmit}>Submit</button>
+            <button className="btn primary-button" onClick={handleSubmit}>Submit</button>
           </div>
         )}
 
-        {submitted && (
-          <div className="tribute-display fade-in">
-            <h4>{tributeText.trim()}</h4>
-          </div>
-        )}
 
         {submitted && (
           <div className="action-buttons">
-            <button className="secondary-button" onClick={handleStartAgain}>Start Again</button>
-            <button className="secondary-button" onClick={handleSave}>Save</button>
+            <button className="btn secondary-button" onClick={handleStartAgain}>Start Again</button>
+            <button className="btn secondary-button" onClick={handleSave}>Save</button>
           </div>
         )}
       </div>
-    </div>
-  );
-}
+      {/* Hidden clean version for capturing */}
+      <div
+        ref={captureRef}
+        className="capture-version"
+        style={{ 
+          position: 'absolute',
+          top: '-9999px',
+          left: '-9999px',
+          width: '400px', // or whatever fits your layout
+          padding: '20px',
+          backgroundColor: '#fff',
+          color: '#000'
+        }}
+      >
+        {previewUrl && (
+          <div className="image-preview">
+            <img src={previewUrl} alt="Preview" style={{ maxWidth: '100%' }} />
+          </div>
+        )}
+        {name && <h2>{name}</h2>}
+        {tributeText && <p>{tributeText}</p>}
+      </div>
+
+    </div>//wrapper
+    
+    
+  );//return
+
+}//App component
 
 export default App;
