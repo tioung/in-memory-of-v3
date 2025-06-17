@@ -1,16 +1,46 @@
-<<<<<<< HEAD
-# React + Vite
+# In Memory Of (v2)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A gentle web app for paying tribute to a loved one. Upload a photo, write a short message, and preserve the memory in a quiet, respectful space.
 
-Currently, two official plugins are available:
+## 🌿 What’s New in v2
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This version refines the experience with a soft, emotionally appropriate visual theme — ideal for remembrance. Key improvements:
 
-## Expanding the ESLint configuration
+- ✨ Cleaner, more elegant visual design (soft blue-gray palette)
+- 📸 Image + tribute capture feature (saved as a clean PNG)
+- 📋 Subtle typography and improved readability
+- 📱 Fully responsive and mobile-friendly layout
+- 💾 “Save” and “Start Again” actions after submission
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# in-memory-of-v1
->>>>>>> 9af4440ac143c4b7bb71fb3f98f6804982fb01ca
+## 🧠 Features
+
+- Upload a photo of your loved one
+- Write a brief tribute or message
+- See a preview of your tribute
+- Save the tribute as a PNG image (with clean layout)
+- Mobile-friendly design
+- Easy reset to create another tribute
+
+## 🚀 Try It Live
+
+👉 [in-memory-of-v2 on Vercel](https://in-memory-of-v2.vercel.app)
+
+> No data is stored or sent to a server — everything happens in your browser.
+
+## 🛠️ Built With
+
+- React
+- HTML + CSS (handcrafted, with CSS variables)
+- [`html2canvas`](https://github.com/niklasvh/html2canvas) for PNG snapshot
+- Git + GitHub for version control
+- Vercel for deployment
+
+## 🙏 Why This Project
+
+A personal tool for moments of quiet memory. This project was built to honor someone close — and maybe it helps you do the same.
+
+---
+
+Feel free to use, remix, or suggest improvements.
+
+📸💬 In Memory Of — because memories matter.

@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import { useRef } from 'react';
 
 function App() {
+  console.log(1234)
   const [previewUrl, setPreviewUrl] = useState(null);
   const [tributeText, setTributeText] = useState('');
   const [name, setName] = useState('');
@@ -22,7 +23,7 @@ function App() {
     setTimeout(() => {
       const tributeSection = document.querySelector('.tribute-display');
       tributeSection?.scrollIntoView({ behavior: 'smooth' });
-    }, 100); // slight delay to ensure element is rendered
+    }, 0); // slight delay to ensure element is rendered
   };
 
   const handleStartAgain = () => {
@@ -90,18 +91,19 @@ const handleSave = () => {
               value={tributeText}
               onChange={(e) => setTributeText(e.target.value)}
             />
-            <button className="btn primary-button" onClick={handleSubmit}>Submit</button>
+            <button className="btn" onClick={handleSubmit}>Submit</button>
           </div>
         )}
 
 
         {submitted && (
           <div className="action-buttons">
-            <button className="btn secondary-button" onClick={handleStartAgain}>Start Again</button>
-            <button className="btn secondary-button" onClick={handleSave}>Save</button>
+            <button className="btn" onClick={handleStartAgain}>Start Again</button>
+            <button className="btn" onClick={handleSave}>Save</button>
           </div>
         )}
       </div>
+
       {/* Hidden clean version for capturing */}
       <div
         ref={captureRef}
