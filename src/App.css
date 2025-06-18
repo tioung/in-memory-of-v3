@@ -4,50 +4,58 @@
 *:focus {
     outline: none;
 }
-  #root {
-    width: 100%;
-  }
+
 :root {
-  --background: #f7f9fb;
+  --background: #fff8f5;
   --card-bg: #ffffff;
-  --primary: #6b7aa1;        /* Muted soft blue-gray */
-  --secondary: #a3acc5;      /* Lighter soft tone */
-  --text-main: #333;
-  --text-muted: #666;
-  --text-soft: #666; /* or something like #777 or #888 */
-  --border-light: #ddd;
+  --primary: #d4a5a5;        /* Soft dusty rose */
+  --secondary: #eecfcf;      /* Pale blush */
+  --accent: #fceeee;         /* Very light pink */
+  --text-main: #4b2e2e;      /* Deep warm brown */
+  --text-muted: #7b5f5f;     /* Soft brown-gray */
+  --text-soft: #a88c8c;
+  --border-light: #f2dede;
   --button-text: #fff;
-  --accent: #e5eaf3;
 }
+
+#root {
+  width: 100%;
+  /* position: relative; */
+}
+
 .btn {
   background-color: var(--primary);
   color: var(--button-text);
   border: none;
   padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  border-radius: 8px;
   display: block;
   width: 100%;
   cursor: pointer;
   margin: 0.5rem 0rem;
   font-size: 1rem;
   transition: background-color 0.2s ease;
+  font-weight: 500;
 }
+
 .btn:hover {
   background-color: var(--secondary);
 }
-
 
 /* Global Reset and Base */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  /* font-family: 'Segoe UI', 'Helvetica Neue', sans-serif; */
+  font-family: 'Playfair Display', serif;
   background-color: var(--background);
   color: var(--text-main);
 }
 
 /* Main App Container */
 .app-wrapper {
+  position: relative; /* ✅ Necessary for ::before to work */
+  z-index: 0; /* Ensure it's above background but under ::before */
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
@@ -62,19 +70,39 @@ h1 {
 }
 
 .subtitle {
-  /* color: var(--text-muted); */
   color: var(--text-soft);
   font-weight: 400;
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
 
+.subtitle-with-line {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.subtitle-with-line::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: -10%;
+  right: -10%;
+  height: 3px;
+  width: 120%;
+  background-color: var(--secondary);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+
 /* Form Card */
 .form-card {
   background-color: var(--card-bg);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.05); */
+  box-shadow: 0 4px 12px rgba(212, 165, 165, 0.1); /* subtle rosy shadow */
   max-width: 600px;
   margin: auto;
 }
@@ -111,12 +139,6 @@ input[type="file"] {
   resize: none;
 }
 
-/* .primary-button:hover,
-.secondary-button:hover {
-  background-color: var(--secondary);
-} */
-
-
 /* Tribute Text Display */
 .tribute-display h4 {
   font-size: 1.1rem;
@@ -125,6 +147,17 @@ input[type="file"] {
   margin-top: 1rem;
   line-height: 1.6;
 }
+.quote-style {
+  font-style: italic;
+  color: var(--text-soft);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--primary);
+  background-color: var(--accent);
+  border-radius: 8px;
+}
+
+
 
 /* Fade-in (Optional) */
 .fade-in {
@@ -160,3 +193,24 @@ input[type="file"] {
 .action-buttons {
   margin-top: 1.5rem;
 }
+.app-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url('https://www.transparenttextures.com/patterns/flowers.png') repeat;
+  opacity: 0.25;
+  z-index: -1;
+}
+.decorative-line {
+  width: 40%;
+  height: 1px;
+  margin: 1rem auto;
+  border: none;
+  background: linear-gradient(to right, var(--accent), var(--primary), var(--accent));
+  opacity: 0.4;
+}
+
+

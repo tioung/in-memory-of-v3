@@ -4,7 +4,6 @@ import html2canvas from 'html2canvas';
 import { useRef } from 'react';
 
 function App() {
-  console.log(1234)
   const [previewUrl, setPreviewUrl] = useState(null);
   const [tributeText, setTributeText] = useState('');
   const [name, setName] = useState('');
@@ -50,11 +49,17 @@ const handleSave = () => {
   return (
     <div className="app-wrapper">
       <h1>In Memory Of</h1>
-      <h2 className="subtitle">
-        {submitted && name.trim()
-          ? `${name.trim()}`
-          : 'Upload a photo of your loved one, write a tribute, and share memories.'}
-      </h2>
+
+      {submitted && name.trim() ? (
+        <>
+          <h2 className="subtitle subtitle-with-line">{name.trim()}</h2>
+          {/* <hr className="decorative-line" /> */}
+        </>
+      ) : (
+        <h2 className="subtitle">
+          Upload a photo of your loved one, write a tribute, and share memories.
+        </h2>
+      )}
 
       <div className="form-card">
         {!submitted && (
@@ -70,7 +75,7 @@ const handleSave = () => {
           )}
           {submitted && (
             <div className="tribute-display fade-in">
-              <h4>{tributeText.trim()}</h4>
+              <h4 className="quote-style">{tributeText.trim()}</h4>
             </div>
           )}
 
