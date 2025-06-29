@@ -1,18 +1,17 @@
-# In Memory Of (v2)
+# In Memory Of (v3)
 
 A gentle web app for paying tribute to a loved one. Upload a photo, write a short message, and preserve the memory in a quiet, respectful space.
 
-## 🌿 What’s New in v2
+## 🌿 What’s New in v3
 
-This version refines the experience with a soft, emotionally appropriate visual theme — ideal for remembrance. Key improvements:
+- Used a Floral-Inspired Theme i.e. dusty rose pink
+- Changed Font and Typography
+- Light Design Tweaks on card and buttons
+- Added a Soft Floral Background Element
+- Used a Decorative Divider Under the Name
+- Added a Quote Style Block
 
-- ✨ Cleaner, more elegant visual design (soft blue-gray palette)
-- 📸 Image + tribute capture feature (saved as a clean PNG)
-- 📋 Subtle typography and improved readability
-- 📱 Fully responsive and mobile-friendly layout
-- 💾 “Save” and “Start Again” actions after submission
-
-## 🧠 Features
+## 🧠 Endgame Features
 
 - Upload a photo of your loved one
 - Write a brief tribute or message
@@ -23,7 +22,7 @@ This version refines the experience with a soft, emotionally appropriate visual 
 
 ## 🚀 Try It Live
 
-👉 [in-memory-of-v2 on Vercel](https://in-memory-of-v2.vercel.app)
+👉 [in-memory-of-v3 on Vercel](https://in-memory-of-v3.vercel.app)
 
 > No data is stored or sent to a server — everything happens in your browser.
 
